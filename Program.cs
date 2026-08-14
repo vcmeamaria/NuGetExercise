@@ -336,6 +336,42 @@ else
     Console.WriteLine("Please enter valid whole numbers.");
 }
 
+// ==============================
+// Exercise 10 - Save Names to Disk
+// ==============================
+
+// File used to store the names.
+string namesFile = "names.txt";
+
+// Create a list to store the names.
+List<string> names = new();
+
+// Load existing names if the file already exists.
+if (File.Exists(namesFile))
+{
+    names.AddRange(File.ReadAllLines(namesFile));
+}
+
+// Ask the user for a new name.
+Console.Write("Enter a name to save: ");
+string newName = Console.ReadLine() ?? "";
+
+// Add the name if it is not empty.
+if (!string.IsNullOrWhiteSpace(newName))
+{
+    names.Add(newName);
+}
+
+// Save all names to the file.
+File.WriteAllLines(namesFile, names);
+
+// Display all saved names.
+Console.WriteLine("Saved names:");
+
+foreach (string name in names)
+{
+    Console.WriteLine(name);
+}
 
 // ==============================
 // Product Class for Exercise 7
