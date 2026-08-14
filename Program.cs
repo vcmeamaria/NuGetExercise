@@ -141,3 +141,42 @@ switch (operation)
 
 // Display the result.
 Console.WriteLine($"Calculator result: {result}");
+
+// ==============================
+// Exercise 4 - Find Statistics
+// ==============================
+
+// Store a fixed set of marks in an array.
+int[] marks = { 67, 82, 91, 54, 76, 88 };
+
+// Start the total at 0.
+int total = 0;
+
+// Start highest and lowest using the first mark.
+int highest = marks[0];
+int lowest = marks[0];
+
+// Go through each mark in the array.
+foreach (int mark in marks)
+{
+    total += mark;
+
+    if (mark > highest)
+    {
+        highest = mark;
+    }
+
+    if (mark < lowest)
+    {
+        lowest = mark;
+    }
+}
+
+// Calculate the average.
+double average = (double)total / marks.Length;
+
+// Display the results.
+Console.WriteLine($"Total: {total}");
+Console.WriteLine($"Average: {average}");
+Console.WriteLine($"Highest: {highest}");
+Console.WriteLine($"Lowest: {lowest}");
