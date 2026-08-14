@@ -142,6 +142,9 @@ switch (operation)
 // Display the result.
 Console.WriteLine($"Calculator result: {result}");
 
+Console.WriteLine();
+
+
 // ==============================
 // Exercise 4 - Find Statistics
 // ==============================
@@ -181,6 +184,9 @@ Console.WriteLine($"Average: {average}");
 Console.WriteLine($"Highest: {highest}");
 Console.WriteLine($"Lowest: {lowest}");
 
+Console.WriteLine();
+
+
 // ==============================
 // Exercise 5 - Shopping List
 // ==============================
@@ -205,4 +211,51 @@ Console.WriteLine($"Items in shopping list: {shoppingList.Count}");
 foreach (string item in shoppingList)
 {
     Console.WriteLine(item);
+}
+
+Console.WriteLine();
+
+
+// ==============================
+// Exercise 6 - Student Marks Dictionary
+// ==============================
+
+// Create a dictionary with student names and marks.
+Dictionary<string, int> studentMarks = new();
+
+studentMarks["Maria"] = 82;
+studentMarks["Ana"] = 67;
+studentMarks["Lucas"] = 54;
+studentMarks["Sofia"] = 91;
+studentMarks["Daniel"] = 43;
+
+// Convert a mark into a grade.
+static string GetGrade(int mark)
+{
+    if (mark >= 70)
+    {
+        return "Distinction";
+    }
+    else if (mark >= 60)
+    {
+        return "Merit";
+    }
+    else if (mark >= 50)
+    {
+        return "Pass";
+    }
+    else
+    {
+        return "Fail";
+    }
+}
+
+// Display each student's name, mark and grade.
+foreach (var entry in studentMarks)
+{
+    string grade = GetGrade(entry.Value);
+
+    Console.WriteLine(
+        $"{entry.Key}: {entry.Value} - {grade}"
+    );
 }
