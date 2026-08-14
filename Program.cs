@@ -302,6 +302,40 @@ foreach (Vehicle vehicle in vehicles)
     vehicle.Describe();
 }
 
+Console.WriteLine();
+
+
+// ==============================
+// Exercise 9 - Safe Division
+// ==============================
+
+// Ask the user for the first number.
+Console.Write("Enter the first number: ");
+string firstInput = Console.ReadLine() ?? "";
+
+// Ask the user for the second number.
+Console.Write("Enter the second number: ");
+string secondInput = Console.ReadLine() ?? "";
+
+// Convert the inputs safely.
+if (int.TryParse(firstInput, out int firstNumber) &&
+    int.TryParse(secondInput, out int secondNumber))
+{
+    if (secondNumber == 0)
+    {
+        Console.WriteLine("Cannot divide by zero.");
+    }
+    else
+    {
+        double divisionResult = (double)firstNumber / secondNumber;
+        Console.WriteLine($"Result: {divisionResult}");
+    }
+}
+else
+{
+    Console.WriteLine("Please enter valid whole numbers.");
+}
+
 
 // ==============================
 // Product Class for Exercise 7
