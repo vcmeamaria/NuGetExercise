@@ -282,6 +282,26 @@ Console.WriteLine($"{laptop.Name}: £{laptop.Price} - Stock: {laptop.StockQuanti
 Console.WriteLine($"{mouse.Name}: £{mouse.Price} - Stock: {mouse.StockQuantity}");
 Console.WriteLine($"{keyboard.Name}: £{keyboard.Price} - Stock: {keyboard.StockQuantity}");
 
+Console.WriteLine();
+
+
+// ==============================
+// Exercise 8 - Vehicle Hierarchy
+// ==============================
+
+// Create a list with different vehicle types.
+List<Vehicle> vehicles = new()
+{
+    new Car("AB12 CDE", "Toyota", 5),
+    new Motorcycle("XY34 ZFG", "Honda", 600)
+};
+
+// Display information about each vehicle.
+foreach (Vehicle vehicle in vehicles)
+{
+    vehicle.Describe();
+}
+
 
 // ==============================
 // Product Class for Exercise 7
@@ -333,5 +353,69 @@ public class Product
         }
 
         StockQuantity -= amount;
+    }
+}
+
+
+// ==============================
+// Vehicle Classes for Exercise 8
+// ==============================
+
+// Base class shared by all vehicles.
+public class Vehicle
+{
+    public string RegistrationNumber { get; set; }
+    public string Make { get; set; }
+
+    public Vehicle(string registrationNumber, string make)
+    {
+        RegistrationNumber = registrationNumber;
+        Make = make;
+    }
+
+    // Derived classes can replace this method.
+    public virtual void Describe()
+    {
+        Console.WriteLine($"{Make} vehicle - {RegistrationNumber}");
+    }
+}
+
+
+// Car inherits from Vehicle.
+public class Car : Vehicle
+{
+    public int NumberOfDoors { get; set; }
+
+    public Car(string registrationNumber, string make, int numberOfDoors)
+        : base(registrationNumber, make)
+    {
+        NumberOfDoors = numberOfDoors;
+    }
+
+    public override void Describe()
+    {
+        Console.WriteLine(
+            $"Car: {Make} - {RegistrationNumber} - Doors: {NumberOfDoors}"
+        );
+    }
+}
+
+
+// Motorcycle also inherits from Vehicle.
+public class Motorcycle : Vehicle
+{
+    public int EngineSize { get; set; }
+
+    public Motorcycle(string registrationNumber, string make, int engineSize)
+        : base(registrationNumber, make)
+    {
+        EngineSize = engineSize;
+    }
+
+    public override void Describe()
+    {
+        Console.WriteLine(
+            $"Motorcycle: {Make} - {RegistrationNumber} - Engine: {EngineSize}cc"
+        );
     }
 }
