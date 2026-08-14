@@ -37,3 +37,30 @@ static void Introduce(string name, string city)
 Introduce("Maria", "Rugby");
 Introduce("Ana", "London");
 Introduce("Lucas", "Birmingham");
+
+Console.WriteLine();
+
+
+// ==============================
+// Exercise 2 - Area Calculator
+// ==============================
+
+// Calculate and return the area of a rectangle.
+static double CalculateRectangleArea(double width, double height)
+{
+    return width * height;
+}
+
+// Calculate and return the area of a circle.
+static double CalculateCircleArea(double radius)
+{
+    return Math.PI * radius * radius;
+}
+
+// Store the results returned by the methods.
+double rectangleArea = CalculateRectangleArea(5, 3);
+double circleArea = CalculateCircleArea(4);
+
+// Display the results.
+Console.WriteLine($"Rectangle area: {rectangleArea}");
+Console.WriteLine($"Circle area: {circleArea}");
