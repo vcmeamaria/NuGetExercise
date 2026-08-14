@@ -259,3 +259,79 @@ foreach (var entry in studentMarks)
         $"{entry.Key}: {entry.Value} - {grade}"
     );
 }
+
+Console.WriteLine();
+
+
+// ==============================
+// Exercise 7 - Product Class
+// ==============================
+
+// Create three product objects.
+Product laptop = new Product(1, "Laptop", 850.00m, 5);
+Product mouse = new Product(2, "Mouse", 25.00m, 10);
+Product keyboard = new Product(3, "Keyboard", 45.00m, 7);
+
+// Change the stock.
+laptop.IncreaseStock(2);
+mouse.ReduceStock(3);
+keyboard.IncreaseStock(1);
+
+// Display the products.
+Console.WriteLine($"{laptop.Name}: £{laptop.Price} - Stock: {laptop.StockQuantity}");
+Console.WriteLine($"{mouse.Name}: £{mouse.Price} - Stock: {mouse.StockQuantity}");
+Console.WriteLine($"{keyboard.Name}: £{keyboard.Price} - Stock: {keyboard.StockQuantity}");
+
+
+// ==============================
+// Product Class for Exercise 7
+// ==============================
+
+public class Product
+{
+    public int Id { get; }
+    public string Name { get; }
+    public decimal Price { get; private set; }
+    public int StockQuantity { get; private set; }
+
+    // Set the starting product information.
+    public Product(int id, string name, decimal price, int stockQuantity)
+    {
+        if (price < 0)
+        {
+            throw new ArgumentException("Price cannot be negative.");
+        }
+
+        if (stockQuantity < 0)
+        {
+            throw new ArgumentException("Stock cannot be negative.");
+        }
+
+        Id = id;
+        Name = name;
+        Price = price;
+        StockQuantity = stockQuantity;
+    }
+
+    // Add more stock.
+    public void IncreaseStock(int amount)
+    {
+        if (amount < 0)
+        {
+            throw new ArgumentException("Amount cannot be negative.");
+        }
+
+        StockQuantity += amount;
+    }
+
+    // Remove stock.
+    public void ReduceStock(int amount)
+    {
+        if (amount < 0 || amount > StockQuantity)
+        {
+            throw new ArgumentException("Invalid stock amount.");
+        }
+
+        StockQuantity -= amount;
+    }
+}
