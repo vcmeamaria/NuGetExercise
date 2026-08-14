@@ -180,3 +180,29 @@ Console.WriteLine($"Total: {total}");
 Console.WriteLine($"Average: {average}");
 Console.WriteLine($"Highest: {highest}");
 Console.WriteLine($"Lowest: {lowest}");
+
+// ==============================
+// Exercise 5 - Shopping List
+// ==============================
+
+// Create a shopping list.
+List<string> shoppingList = new();
+
+// Add products to the list.
+shoppingList.Add("Milk");
+shoppingList.Add("Bread");
+shoppingList.Add("Eggs");
+shoppingList.Add("Coffee");
+shoppingList.Add("Chocolate");
+
+// Remove one product.
+shoppingList.Remove("Bread");
+
+// Display how many products are left.
+Console.WriteLine($"Items in shopping list: {shoppingList.Count}");
+
+// Display each product.
+foreach (string item in shoppingList)
+{
+    Console.WriteLine(item);
+}
